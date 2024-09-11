@@ -2,15 +2,84 @@
 
 <% content_for :title, "Movies" %>
 
+<style>
+  h1 {
+    color: red;
+    margin-bottom: 50px;
+  }
+
+  .container{
+    max-width: 1000px;
+    background-color: yellow;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    align-items: left;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: medium;
+  }
+
+  th{
+    padding: 10px;
+    border: 1px solid;
+    border-color: black;
+    text-align: left;
+    font-weight: bold;
+    font-color: Brown;
+  }
+
+  .sortable.active {
+    font-weight: bold;
+    background-color: 
+  }
+
+  .sortable.active.asc::after {
+    content: " ▲"; 
+  }
+
+  .sortable.active.desc::after {
+    content: " ▼";
+  }
+
+  td {
+    padding: 10px;
+    border: 1px solid;
+    text-align: left;
+  }
+</style>
+
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
+<div id="moviesTable">
+  <table>
+    <thead>
+      <th><%= sortable "title", "Title" %></th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Release Date</th>
+      <th>Show movie details</th>
+    </thead>
+    <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.description %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= link_to "Click here", movie %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<br>
+
+ <h3>Other Options</h3>
+
+<%= link_to "Add New movie", new_movie_path %>
