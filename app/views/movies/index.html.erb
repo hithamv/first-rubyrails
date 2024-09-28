@@ -2,9 +2,9 @@
 
 <% content_for :title, "Movies" %>
 
-<h1 style="color: #ff6347; margin-bottom: 20px; text-align: center; font-size: 2rem;">Movies</h1>
+<h1 style="color: #007bff; margin-bottom: 20px; text-align: center; font-size: 2rem;">Movies</h1>
 
-<div style="max-width: 1000px; background-color: #f8f9fa; padding: 20px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+<div style="max-width: 800px; background-color: #f8f9fa; padding: 20px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px;">
   <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
     <thead>
       <tr>
@@ -14,11 +14,15 @@
         <th style="padding: 15px; <%= highlight_column('rating') %>">
           <%= sortable "rating", "Rating" %>
         </th>
-        <th style="padding: 15px; background-color: #007bff; color: white; border-bottom: 2px solid #dddddd; text-align: left;">Description</th>
+        <th style="padding: 15px; background-color: #007bff; color: white; text-align: left;">
+          Description
+        </th>
         <th style="padding: 15px; <%= highlight_column('release_date') %>">
           <%= sortable "release_date", "Release Date" %>
         </th>
-        <th style="padding: 15px; background-color: #007bff; color: white; border-bottom: 2px solid #dddddd; text-align: left;">Details</th>
+        <th style="padding: 15px; background-color: #007bff; color: white; text-align: left;">
+          Details
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -26,8 +30,8 @@
         <tr style="background-color: white; border-bottom: 1px solid #dddddd;">
           <td style="padding: 15px; text-align: left; color: #333333;"><%= movie.title %></td>
           <td style="padding: 15px; text-align: left; color: #666666;"><%= movie.rating %></td>
-          <td style="padding: 15px; text-align: left; color: #666666;"><%= movie.description %></td>
-          <td style="padding: 15px; text-align: left; color: #666666;"><%= movie.release_date %></td>
+          <td style="padding: 15px; text-align: left; color: #666666;"><%= truncate(movie.description, length: 50) %></td>
+          <td style="padding: 15px; text-align: left; color: #666666;"><%= movie.release_date.strftime('%Y-%m-%d') if movie.release_date %></td>
           <td style="padding: 15px; text-align: center;">
             <%= link_to "View", movie, style: "padding: 10px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px;" %>
           </td>
@@ -36,9 +40,7 @@
     </tbody>
   </table>
 
-  <h3 style="text-align: center; color: #333333;">Other Options</h3>
-
-  <div style="text-align: center; margin-top: 10px;">
+  <div style="text-align: center; margin-top: 20px;">
     <%= link_to "Add New Movie", new_movie_path, style: "padding: 12px 24px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 1.1rem;" %>
   </div>
 </div>
