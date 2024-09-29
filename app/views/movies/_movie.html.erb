@@ -1,22 +1,43 @@
-<div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
-    <%= movie.title %>
-  </p>
+<div id="<%= dom_id movie %>" style="max-width: 600px; background-color: #ffffff; padding: 30px; margin: 20px auto; border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); font-family: 'Arial', sans-serif;">
+  <h2 style="text-align: center; color: #007bff; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 2px solid #007bff; padding-bottom: 10px;">Movie Details</h2>
 
-  <p>
-    <strong>Rating:</strong>
-    <%= movie.rating %>
-  </p>
+  <div style="margin-bottom: 20px;">
+    <p style="font-size: 1.1rem; margin: 5px 0; color: #333;">
+      <strong style="color: #007bff;">Title:</strong>
+      <span style="color: #555;"><%= movie.title %></span>
+    </p>
+  </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= movie.description %>
-  </p>
+  <div style="margin-bottom: 20px;">
+    <p style="font-size: 1.1rem; margin: 5px 0; color: #333;">
+      <strong style="color: #007bff;">Rating:</strong>
+      <span style="color: #555;"><%= movie.rating %></span>
+    </p>
+  </div>
 
-  <p>
-    <strong>Release date:</strong>
-    <%= movie.release_date %>
-  </p>
+  <div style="margin-bottom: 20px;">
+    <p style="font-size: 1.1rem; margin: 5px 0; color: #333;">
+      <strong style="color: #007bff;">Description:</strong>
+      <span style="color: #555;"><%= movie.description %></span>
+    </p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <p style="font-size: 1.1rem; margin: 5px 0; color: #333;">
+      <strong style="color: #007bff;">Release Date:</strong>
+      <span style="color: #555;"><%= movie.release_date %></span>
+    </p>
+  </div>
 
 </div>
+
+<style>
+  a {
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  a:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+  }
+</style>

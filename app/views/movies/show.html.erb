@@ -1,10 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: #28a745; font-weight: bold; text-align: center; margin: 20px 0; font-size: 1.1rem;">
+  <%= notice %>
+</p>
 
-<%= render @movie %>
+<div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); font-family: 'Arial', sans-serif;">
+  <%= render @movie %>
 
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
+  <div style="text-align: center; margin-top: 20px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+    <%= link_to "Edit this movie", edit_movie_path(@movie), style: "padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 1rem; transition: background-color 0.3s; box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);" %>
 
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+    <%= link_to "Back to movies", movies_path, style: "padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px; font-size: 1rem; transition: background-color 0.3s; box-shadow: 0 4px 8px rgba(108, 117, 125, 0.2);" %>
+
+    <%= button_to "Destroy this movie", @movie, method: :delete, data: { confirm: "Are you sure?" }, style: "padding: 10px 20px; background-color: #dc3545; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; transition: background-color 0.3s; box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);" %>
+  </div>
 </div>
+
+<style>
+  /* Add hover effects for links and buttons */
+  a {
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  a:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+  }
+
+  button:hover {
+    background-color: #c82333; 
+    transform: translateY(-2px); 
+  }
+</style>
