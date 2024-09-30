@@ -4,7 +4,7 @@ module ApplicationHelper
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"
     icon = (column == sort_column) ? (sort_direction == "asc" ? " ▲" : " ▼") : ""
 
-    link_to "#{title}#{icon}".html_safe, { sort: column, direction: direction } # No need to merge params for session method
+    link_to "#{title}#{icon}".html_safe, { sort: column, direction: direction } 
   end
 
   def sort_column

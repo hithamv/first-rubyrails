@@ -2,13 +2,10 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
   helper_method :sort_column, :sort_direction
 
-  # GET /movies or /movies.json
+ 
   def index
-    # Use session to remember sort preferences
     session[:sort] = params[:sort] if params[:sort].present?
     session[:direction] = params[:direction] if params[:direction].present?
-
-    # Retrieve from session if not present in params
     @sort_column = session[:sort] || "title"
     @sort_direction = session[:direction] || "asc"
 
