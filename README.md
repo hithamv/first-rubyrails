@@ -1,5 +1,8 @@
 # README
 
+Link to the app: 
+https://hithamv-first-ruby-app-fa3cf26422da.herokuapp.com/
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
